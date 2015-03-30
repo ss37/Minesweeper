@@ -1,0 +1,104 @@
+@CHARSET "ISO-8859-1";
+
+html, body{
+	width: 100%;
+	height: 100%;
+	background-color: #33CCFF;
+}
+#div2{
+	width: 100%;
+	position: relative;
+	left: 42%;
+}
+
+table{
+	border: 2px solid #686868 ;
+	height: 240px;
+	width: 200px;
+	border-spacing: 1px 1px;
+	background-color: #E0E0E0;
+	font-weight: bold;
+	font-size: 105%;
+}
+
+th{
+	height: 16.67%;
+	width: 20%;
+	border: 1px solid #686868 ;
+	vertical-align: middle;
+	text-align: center;
+	border-spacing: 5px 5px;
+	padding: 0px 0px 0px 0px;
+	font-weight: bold;
+	font-size: 105%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #009900;
+}
+
+td{
+	height: 16.67%;
+	width: 20%;
+	border: 1px solid #686868 ;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+}
+
+.one{
+	color: #0000ff;
+	font-weight: bold;
+}
+
+.two{
+	color: #2d8800;
+	font-weight: bold;
+}
+
+.zero{
+	color: black;
+	font-weight: bold;
+	border: 0;
+}
+
+button{
+	height: 38px;
+	width: 36px;
+	background-color: #c0c0c0;
+	padding: 0px 0px 0px 0px;
+}
+
+svg1{
+	margin: 0px 0px 0px 0px;
+}
+
+.visible{
+	display: initial;
+}
+.hidden{
+	display: none;
+}
+
+#div1{
+	width: 70%;
+	position: relative;
+	left: 15%;
+	text-align: center;
+	font-size: 100%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+ol{
+	text-align: left;
+	font-size: 105%;
+}
+#p1{
+	width: 100%;
+	position: relative;
+	left: 33%;
+	text-align: center;
+	font-size: 115%;
+	font-family: Georgia, serif;
+	color: #FF0099;
+	font-weight: bold;
+	font-style: italic;
+}
