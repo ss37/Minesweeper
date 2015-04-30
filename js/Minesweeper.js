@@ -1,6 +1,83 @@
-var mines = [ "t4", "t15", "t17", "t21", "t24" ];
-var numbers = [ "0", "0", "1", "*", "1", "0", "0", "1", "2", "2", "1", "1",
-		"1", "1", "*", "2", "*", "2", "2", "2", "*", "2", "2", "*", "1" ];
+var numbers = new Array();
+var mines = new Array();
+generateRandomMine();
+initialiseArray();
+checkSurroundingMine();
+
+function generateRandomMine(){
+	for(var i=0; i<5; i++){
+		var index = Math.floor((Math.random() * 25) + 1);
+		mines.push("t"+index);
+		if(numbers[index] == "*"){
+			i--;
+			continue;
+		}
+		else{
+			numbers[index] = "*";
+		}
+	}
+	mines.sort();
+}
+function initialiseArray(){
+	for(var i=0; i<=25; i++)
+		if(numbers[i]!="*")
+			numbers[i] = 0;
+}
+function checkSurroundingMine(){
+	for(var i=1; i<=25; i++){
+		if(numbers[i] == "*")
+			continue;
+		else{
+			checkBottomRow(i);
+			checkSameRow(i);
+			checkTopRow(i);
+		}
+	}
+	numbers.shift();
+}
+function checkBottomRow(i){
+	//check the bottom row only if it is not the bottom-most row
+	if(i<21){
+		//check the bottom-left except if it is already in the left-most
+		if((i-1)%5!=0)
+			if(numbers[i+4] == "*")
+				numbers[i]++;
+		//check the bottom-right except if it is already in the right-most
+		if(i%5!=0)
+			if(numbers[i+6] == "*")
+				numbers[i]++;
+		//check the bottom-middle
+		if(numbers[i+5] == "*")
+				numbers[i]++;
+	}
+}
+function checkSameRow(i){
+	//check left except if it is already in the left-most
+	if((i-1)%5!=0)
+		if(numbers[i-1] == "*")
+			numbers[i]++;
+	//check right except if it is already in the right-most
+	if(i%5!=0)
+		if(numbers[i+1] == "*")
+			numbers[i]++;
+}
+function checkTopRow(i){
+	//check top row only if it is not the top-most row
+	if(i>5){
+		//check top-left except if it is already in the left-most
+		if((i-1)%5!=0)
+			if(numbers[i-6] == "*")
+				numbers[i]++;
+		//check top-right except if it is already in the right-most
+		if(i%5!=0)
+			if(numbers[i-4] == "*")
+				numbers[i]++;
+		//check top-middle
+		if(numbers[i-5] == "*")
+			numbers[i]++;
+	}
+}
+
 var count = 5; // for 5 mines
 var count2 = 0;
 var timeInSeconds = 0;
