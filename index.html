@@ -33,7 +33,7 @@
         <h3>
 <a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h3>
 
-<p>I used to play this game in the classic Windows desktops of the 90s. I tried to replicate it in its most basic form using only JavaScript, HTML5, SVG and Bootstrap. It started out as one of my assignments for my Web Technologies course in Fall 2014, where I had statically placed mines.<br>
+<p>I used to play this game in the classic Windows desktops of the 90s. I tried to replicate it in its most basic form using only JavaScript, HTML5, SVG and Bootstrap. It started out as one of my assignments for my Web Technologies and Standards course in Fall 2014, where I had generated mines statically.<br>
 In the second version of this game, I added a few lines to in the JavaScript, to randomly generate mines, and ensure its neighboring cells displayed the correct number when uncovered by the player.<br>
 You can play this game <a href="https://pitt.edu/%7Eshs174/Minesweeper.html">here</a>.</p>
 
@@ -41,13 +41,18 @@ You can play this game <a href="https://pitt.edu/%7Eshs174/Minesweeper.html">her
 <a id="about-minesweeper" class="anchor" href="#about-minesweeper" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Minesweeper</h3>
 
 <p>Minesweeper is a single player puzzle game where users need to uncover cells or flag cells to find all the mines without detonating any of them. If the player uncovers the mine, he loses the game. If he uncovers a cell, the cell displays a number which describes the number of mines that in the adjacent cells.</p>
+<p><a href="images/minesweeper_windows.png">Minesweeper on Windows image</a></p>
 
 <h3>
 <a id="developing-minesweeper" class="anchor" href="#developing-minesweeper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing Minesweeper</h3>
 
-<p>In this game, the player can click on the smiley to start a new game. Every time he clicks on a cell, you can notice that the expression of the smiley changes. This I was able to create using SVG. Scalable Vector Graphics (SVG) is an open standard developed by World Wide Web Consortium (W3C). Since it is easy to incorporate SVG into HTML5, I was able to generate a smiley by creating a big circle, 2 smaller circles as eyes and a curve for its mouth. :) So Simple! In the end of a game, you can notice the smileys change to smarty or a knocked out smiley based on the win/loss of the player.<br>
+<p><a href="images/screenshot_1.JPG">Screenshot image of Minesweeper</a></p>
+<p>In this game, the player can click on the smiley to start a new game. Every time he clicks on a cell, you can notice that the expression of the smiley changes. This I was able to create using SVG. Scalable Vector Graphics (SVG) is an open standard developed by World Wide Web Consortium (W3C). Since it is easy to incorporate SVG into HTML5, I was able to generate a smiley by creating a big circle, 2 smaller circles as eyes and a curve for its mouth. :) So Simple! In the end of a game, you can notice the smiley changes to a smarty or a knocked out smiley based on the win/loss of the player.<br>
+<p><a href="images/screenshot_4.JPG">Screenshot image of Minesweeper</a></p>
 I initially developed a single grid of 5 mines and ensured all the cells carried the correct values. I used the concepts of arrays and event handlers in JavaScript to cover the cell and uncover the cell. During the summer, I generated an algorithm that randomly generated mines and the correct values in the cells. So what you see now is a game that changes each time you click on the smiley! :)<br>
+<p><a href="images/screenshot_2.JPG">Screenshot image of Minesweeper</a></p>
 I loved the idea of flags in the classic game on Windows. I replicated it in here using SVG and JavaScript. Since a flag is a line and a triangle, it was pretty much easy. So every time a player uses a right click on a cell, he/she can a flag displayed right there. This helps him remember that the cell contains a mine and he should not click on it while playing the game.<br>
+<p><a href="images/screenshot_3.JPG">Screenshot image of Minesweeper</a></p>
 The rest of the layout of the website was created using Bootstrap. Bootstrap is a really simple, easy-to-use tool for quick web page solutions. <a href="https://github.com/ss37/Minesweeper/">Minesweeper image</a>  </p>
 
 <h3>
@@ -56,7 +61,7 @@ The rest of the layout of the website was created using Bootstrap. Bootstrap is 
 <p>JavaScript, HTML5, SVG and Bootstrap</p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a></small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
