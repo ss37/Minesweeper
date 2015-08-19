@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Minesweeper
+tagline:          ''
+description:      'Classic single player puzzle game - <a href="http://pitt.edu/~shs174/Minesweeper.html">Play Now</a>'
+url:              http://ss37.github.io/Minesweeper
+baseurl:          /
+
+author:
+  name:           'Shruti Sabusuresh'
+  url:            http://ss37.github.io
+
+paginate:         5
+
+# Custom vars
+version:          2.0
+
+github:
+  repo:           https://github.com/ss37/Minesweeper
