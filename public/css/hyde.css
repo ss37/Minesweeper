@@ -103,14 +103,13 @@ a.sidebar-nav-item:focus {
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
  * contents to the bottom of the sidebar in tablets and up.
- * Updated as top-down flow of content. ~Shruti
  */
 
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    top: 1rem;
+    bottom: 1rem;
     left:   1rem;
   }
 }
