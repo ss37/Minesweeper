@@ -1,1 +1,295 @@
-testing
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Minesweeper</title>
+<link rel="stylesheet" type="text/css" href="http://ss37.github.io/Minesweeper/public/css/Minesweeper.css" />
+<script type="text/javascript" src="http://ss37.github.io/Minesweeper/public/js/Minesweeper.js"></script>
+</head>
+<body>
+	<div id="div1">
+		<h1>Minesweeper</h1>
+		<hr />
+		<div >
+		<h2>How to play?</h2>
+		<h3>Objective: You have to find all the five mines in this grid
+			of 5x5.</h3>
+		<ol>
+			<li>The number on the top left shows the number of mines to
+				find.</li>
+			<li>The number on the top right is the timer.</li>
+			<li>Click on any random square.</li>
+			<li>The number shown signifies the number of mines that
+				particular square is touching(top, bottom, sides and diagonally).</li>
+			<li>Right click on a square flags it.</li>
+			<li>If you click on a mine, it's game over.</li>
+			<li>Click on the smiley to start a new game and challenge your time!</li>
+		</ol>
+		</div>
+		<p><i>This web page works best with Google Chrome.</i></p>
+	</div>
+	<div id="div2">
+		<table>
+			<tr>
+				<th colspan="2"><b id="count">5</b></th>
+				<th>
+				<!-- TODO: ask if user wants to start a new game -->
+				<!-- FIXIT: SVG not working in Firefox | blog about the issue -->
+					<button id="button"> <!-- <object id="svg1" type="image/svg+xml" data="svg/smiley.svg">
+						R </object> -->
+						<svg id="svg1"  height="32" width="32" onclick="window.location.reload();">
+							<circle id="circle1" cx="17" cy="17" r="13" stroke="black" stroke-width="1" fill="yellow" class="visible" />
+							<circle id="circle2" cx="13" cy="12" r="1" stroke="black" stroke-width="1" fill="black" class="visible" />
+							<circle id="circle3" cx="21" cy="12" r="1" stroke="black" stroke-width="1" fill="black" class="visible" />
+							<circle id="circle4" cx="17" cy="20" r="2" stroke="black" stroke-width="1" fill="black" class="hidden" />
+							<path id="path1" d="M 8 17 Q 17 28 26 17" stroke="black" stroke-width="1" fill="none" class="visible" />
+							<line id="line1" x1="11" y1="10" x2="15" y2="14" stroke="black" stroke-width="1" class="hidden" />
+							<line id="line2" x1="15" y1="10" x2="11" y2="14" stroke="black" stroke-width="1" class="hidden" />
+							<line id="line3" x1="19" y1="10" x2="23" y2="14" stroke="black" stroke-width="1" class="hidden" />
+							<line id="line4" x1="23" y1="10" x2="19" y2="14" stroke="black" stroke-width="1" class="hidden" />
+							<path id="path2" d="M 8 23 Q 17 12 26 23" stroke="black" stroke-width="1" fill="none" class="hidden" />
+						</svg> </button>
+				</th>
+				<th colspan="2"><b id="timer">0</b></th>
+			</tr>
+			<tr>
+				<td id="t1" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft1" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>				
+				</td>
+				<td id="t2" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft2" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t3" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft3" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t4" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft4" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t5" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft5" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+			</tr>
+			<tr>
+				<td id="t6" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft6" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t7" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft7" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t8" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft8" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t9" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft9" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t10" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft10" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+			</tr>
+			<tr>
+				<td id="t11" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft11" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t12" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft12" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t13" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft13" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t14" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft14" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t15" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft15" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+			</tr>
+			<tr>
+				<td id="t16" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft16" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t17" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft17" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t18" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft18" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t19" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft19" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t20" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft20" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+			</tr>
+			<tr>
+				<td id="t21" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft21" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t22" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft22" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t23" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft23" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t24" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft24" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+				<td id="t25" onmousedown="checkMine(this.id,event);changeSmiley();"
+					onmouseup="changeSmiley();" oncontextmenu="return false;">
+					<svg id="ft25" class="hidden" height="30" width="30">
+						<line x1="26" y1="4" x2="26" y2="26" stroke="black" stroke-width="1" />
+						<polygon points="26,4 6,11 26,14" stroke="black" stroke-width="1" fill="red" />
+						<line x1="23" y1="27" x2="29" y2="27" stroke="black" stroke-width="1" />
+						<line x1="24" y1="26" x2="28" y2="26" stroke="black" stroke-width="1" />
+					</svg>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<p id="p1" class="hidden"></p>
+	<footer>Created by Shruti Sabusuresh</footer>
+</body>
+</html>

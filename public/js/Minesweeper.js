@@ -1,3 +1,7 @@
+/*var mines = [ "t4", "t15", "t17", "t21", "t24" ];
+var numbers = [ "0", "0", "1", "*", "1", "0", "0", "1", "2", "2", "1", "1",
+		"1", "1", "*", "2", "*", "2", "2", "2", "*", "2", "2", "*", "1" ];*/
+
 var numbers = new Array();
 var mines = new Array();
 generateRandomMine();
